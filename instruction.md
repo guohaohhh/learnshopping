@@ -99,7 +99,11 @@
  ### 查看支付状态
  ## 八、线上部署
  ### 阿里云部署
- 
- 
+ # 远程分支的合并
+ ### git checkout dev 创建一个分支
+ ### git pull origin dev 从远程中提取出来
+ ### git checkout master 选择分支
+ ### git merge dev 分支合并
+ ### git push origin master  提交到远程仓库
  
  
