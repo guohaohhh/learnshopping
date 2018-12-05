@@ -250,4 +250,13 @@ PRIMARY KEY(`id`)
  ## Dao层
  # Mybatis-generator插件
  # 搭建ssm框架
+ ##  在main目录下创建 java/resoures
+ ### 在java/resoures下创建 com .neueud
+ #### 在neuedu创建 控制层（controller），接口（dao），实体类（pojo）
+ #### 在neuedu创建  mapper映射包 
+ #### 常见一个db.prpperties 配置文件
+ #### pom.xml 导包  resoures下创建generatorConfig.xml/ logback.xml/maybatis-config.xml/spring.xml/springmvc.xml
+ # generatorConfig.xml 里面进行配置
+ ## 点开maven.projects进行自动生成
+ 
  
