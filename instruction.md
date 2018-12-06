@@ -1,3 +1,4 @@
+ ```
  # 配置用户名（提交时会引用）
  ## git config -- global user.name"你的用户名"
  # 配置邮箱
@@ -17,6 +18,9 @@
  ### id_rsa id_rsa.pub
  ## 4.将公钥的内容复制
  ## 5.进入github网站，将公钥添加进去
+ ```
+ 
+ ```
  # -----------git指令-----------
  ### git init 创建本地仓库
  ### git commit -m “描述” 提交到本地仓库
@@ -105,9 +109,9 @@
  ### git checkout master 选择分支
  ### git merge dev 分支合并
  ### git push origin master  提交到远程仓库
+ ```
  
- 
- 
+ ```
  # ---------数据库设计-----------
  # ------创建数据库-----
  create database ilearnshopping;
@@ -241,7 +245,9 @@
 `update_time`  datetime  not null  comment '最后一次更新时间',
 PRIMARY KEY(`id`)
 )ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+ ```
  
+ ```
 # 项目架构--四层架构
  ## 视图层
  ## 控制层controller
@@ -260,11 +266,12 @@ PRIMARY KEY(`id`)
  ## spring.xml <!--开启注解-->  <!--配置控制前可以返回json格式的数据-->  <!--视图解析器--> <!-- 文件上传视图解析器 --> <!-- 设置上传文件的最大尺寸为5MB -->
  ## 点开maven.projects进行自动生成
  
- ## 冗余字段：某一字段属于一个表，但它又同时出现在另一个或多个表，且完全等同于它在其本来所属表的意义表示
+ ##  冗余字段：某一字段属于一个表，但它又同时出现在另一个或多个表，且完全等同于它在其本来所属表的意义表示
+ ```
  
  ```
-  #### pom.xml 导包  resoures下创建generatorConfig.xml/ logback.xml/maybatis-config.xml/spring.xml/springmvc.xml
-  ## generatorConfig.xml    <!--配置mysql的驱动包jar-->   <!-- 实体类-->   <!--配置sql文件--> <!--生成Dao接口-->  <!--配置数据表（表示几个写几个）-->
-  ## spring.xml <!--开启注解-->  <!--配置控制前可以返回json格式的数据-->  <!--视图解析器--> <!-- 文件上传视图解析器 --> <!-- 设置上传文件的最大尺寸为5MB -->
-  ## 点开maven.projects进行自动生成
+   pom.xml 导包  resoures下创建generatorConfig.xml/ logback.xml/maybatis-config.xml/spring.xml/springmvc.xml
+    generatorConfig.xml    <!--配置mysql的驱动包jar-->   <!-- 实体类-->   <!--配置sql文件--> <!--生成Dao接口-->  <!--配置数据表（表示几个写几个）-->
+   spring.xml <!--开启注解-->  <!--配置控制前可以返回json格式的数据-->  <!--视图解析器--> <!-- 文件上传视图解析器 --> <!-- 设置上传文件的最大尺寸为5MB -->
+   点开maven.projects进行自动生成
   ```
