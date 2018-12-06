@@ -36,8 +36,8 @@
       update_time)
     values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{question,jdbcType=VARCHAR}, 
-      #{answer,jdbcType=VARCHAR}, #{role,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP})
+      #{answer,jdbcType=VARCHAR}, #{role,jdbcType=INTEGER}, now(),
+      now())
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.UserInfo">
     <!--
@@ -74,5 +74,21 @@
     select id, username, password, email, phone, question, answer, role, create_time, 
     update_time
     from neuedu_user
+  </select>
+
+  <!--判断是用户名是否存在            参数类型                 返回值类型 -->
+  <select id="checkUsername" parameterType="string" resultType="int">
+    select count(*) from  neuedu_user where username=#{username}
+  </select>
+
+  <!--根据用户名和密码进行查询，是否存在这个用户             多个值         因为 插件已经把表的字段和java实体类做了映射   -->
+  <select id="selectUserByUsernameAndPassword" parameterType="map" resultMap="BaseResultMap">
+    select id, username, password, email, phone, question, answer, role, create_time,
+    update_time
+    from neuedu_user where username=#{username} and password=#{password}
+  </select>
+
+  <select id="checkEmail" parameterType="string" resultType="int">
+    select count(*) from  neuedu_user where email=#{email}
   </select>
 </mapper>
