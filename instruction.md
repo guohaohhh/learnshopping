@@ -1,5 +1,5 @@
- ```
- # 配置用户名（提交时会引用）
+
+ 配置用户名（提交时会引用）
  ## git config -- global user.name"你的用户名"
  # 配置邮箱
  ## git config --global user.email "你的邮箱"
