@@ -1,4 +1,4 @@
-
+``````
  配置用户名（提交时会引用）
  ## git config -- global user.name"你的用户名"
  # 配置邮箱
@@ -18,9 +18,9 @@
  ### id_rsa id_rsa.pub
  ## 4.将公钥的内容复制
  ## 5.进入github网站，将公钥添加进去
- ```
- 
- ```
+``````
+ # -----------git指令-----------
+``````
  # -----------git指令-----------
  ### git init 创建本地仓库
  ### git commit -m “描述” 提交到本地仓库
@@ -109,11 +109,11 @@
  ### git checkout master 选择分支
  ### git merge dev 分支合并
  ### git push origin master  提交到远程仓库
- ```
- 
- ```
+``````
  # ---------数据库设计-----------
- # ------创建数据库-----
+``````
+  ---------数据库设计-----------
+  ------创建数据库-----
  create database ilearnshopping;
  use ilearnshopping;
  ### 用户表 
@@ -131,7 +131,7 @@
   PRIMARY KEY(`id`),
   UNIQUE KEY `user_name_index`(`username`) USING BTREE
    )ENGINE=InnoDB DEFAULT CHARSET=UTF8;
- ### 类别表
+类别表
  create table nuedu_category(
   `id` int(11) not null auto_increment comment '类别id',
   `parent_id`  int(11) not null default 0 comment '父类id',
@@ -151,8 +151,7 @@
   小米手机   3      7          3
   p系列      4      8          6
   mate系列   4      9          6
-  . . . .
- ### 商品表
+商品表
  create table neuedu_product(
  `id` int(11) not null auto_increment comment '商品id',
  `category_id` int(11) not null comment '商品所属的类别id，值引用类别表的id',
@@ -168,8 +167,7 @@
  `update_time`  datetime   comment '修改时间',
   PRIMARY KEY(`id`)
    )ENGINE=InnoDB DEFAULT CHARSET=UTF8
- 
- ### 购物车表
+ 购物车表
   create table neuedu_cart(
   `id`  int(11) not null   auto_increment  comment '购物车id',  
   `user_id`  int(11) not null comment '用户id',
@@ -181,7 +179,7 @@
    PRIMARY KEY(`id`),
    key `user_id_index`(`user_id`) USING BTREE
      )ENGINE=InnoDB DEFAULT CHARSET=UTF8
- ### 订单表
+订单表
  create table neuedu_order(
   `id`  int(11)    not null  auto_increment comment '订单id,主键',
   `order_no`   bigint(20) not null  comment '订单编号',
@@ -200,7 +198,7 @@
    PRIMARY KEY(`id`),
    UNIQUE KEY `order_no_index`(`order_no`) USING BTREE
     )ENGINE=InnoDB DEFAULT CHARSET=UTF8
- ### 订单明细表
+订单明细表
  create table neuedu_order_item(
     `id`           int(11)    not null  auto_increment comment '订单明细id,主键',
     `order_no`     bigint(20) not null  comment '订单编号',
@@ -217,7 +215,7 @@
      KEY `order_no_index`(`order_no`) USING BTREE,
      KEY `order_no_user_id_index`(`order_no`,`user_id`) USING BTREE
   )ENGINE=InnoDB DEFAULT CHARSET=UTF8
- ### 支付表
+ 支付表
  create table neuedu_payinfo(
  `id` int(11)    not null  auto_increment comment '主键',
  `order_no`  bigint(20) not null  comment '订单编号',
@@ -229,7 +227,7 @@
  `update_time`  datetime  default null  comment '更新时间',
   PRIMARY KEY(`id`)
    )ENGINE=InnoDB DEFAULT CHARSET=UTF8
- ### 地址表
+ 地址表
  create table neuedu_shipping(
 `id`  int(11) not null  auto_increment comment '地址id',
 `user_id`  int(11)  not  null comment '用户id' ,
@@ -245,33 +243,33 @@
 `update_time`  datetime  not null  comment '最后一次更新时间',
 PRIMARY KEY(`id`)
 )ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
- ```
+```````````````
+ # 项目架构--四层架构
+```````````````
+项目架构--四层架构
+  视图层
+  控制层controller
+  业务逻辑层service
+  接口和实现类
+  Dao层
+  Mybatis-generator插件
+  搭建ssm框架
+  在main目录下创建 java/resoures
+  在java/resoures下创建 com .neueud
+  在neuedu创建 控制层（controller），接口（dao），实体类（pojo）
+  在neuedu创建  mapper映射包 
+  常见一个db.prpperties 配置文件
+  pom.xml 导包  resoures下创建generatorConfig.xml/ logback.xml/maybatis-config.xml/spring.xml/springmvc.xml
+  generatorConfig.xml    <!--配置mysql的驱动包jar-->   <!-- 实体类-->   <!--配置sql文件--> <!--生成Dao接口-->  <!--配置数据表（表示几个写几个）-->
+  spring.xml <!--开启注解-->  <!--配置控制前可以返回json格式的数据-->  <!--视图解析器--> <!-- 文件上传视图解析器 --> <!-- 设置上传文件的最大尺寸为5MB -->
+  点开maven.projects进行自动生成
  
- ```
-# 项目架构--四层架构
- ## 视图层
- ## 控制层controller
- ## 业务逻辑层service
- ## 接口和实现类
- ## Dao层
- # Mybatis-generator插件
- # 搭建ssm框架
- ##  在main目录下创建 java/resoures
- ### 在java/resoures下创建 com .neueud
- #### 在neuedu创建 控制层（controller），接口（dao），实体类（pojo）
- #### 在neuedu创建  mapper映射包 
- #### 常见一个db.prpperties 配置文件
- #### pom.xml 导包  resoures下创建generatorConfig.xml/ logback.xml/maybatis-config.xml/spring.xml/springmvc.xml
- ## generatorConfig.xml    <!--配置mysql的驱动包jar-->   <!-- 实体类-->   <!--配置sql文件--> <!--生成Dao接口-->  <!--配置数据表（表示几个写几个）-->
- ## spring.xml <!--开启注解-->  <!--配置控制前可以返回json格式的数据-->  <!--视图解析器--> <!-- 文件上传视图解析器 --> <!-- 设置上传文件的最大尺寸为5MB -->
- ## 点开maven.projects进行自动生成
+   冗余字段：某一字段属于一个表，但它又同时出现在另一个或多个表，且完全等同于它在其本来所属表的意义表示
+```````````````
  
- ##  冗余字段：某一字段属于一个表，但它又同时出现在另一个或多个表，且完全等同于它在其本来所属表的意义表示
- ```
- 
- ```
+```````````````
    pom.xml 导包  resoures下创建generatorConfig.xml/ logback.xml/maybatis-config.xml/spring.xml/springmvc.xml
     generatorConfig.xml    <!--配置mysql的驱动包jar-->   <!-- 实体类-->   <!--配置sql文件--> <!--生成Dao接口-->  <!--配置数据表（表示几个写几个）-->
    spring.xml <!--开启注解-->  <!--配置控制前可以返回json格式的数据-->  <!--视图解析器--> <!-- 文件上传视图解析器 --> <!-- 设置上传文件的最大尺寸为5MB -->
    点开maven.projects进行自动生成
-  ```
+```````````````
