@@ -87,8 +87,41 @@
     update_time
     from neuedu_user where username=#{username} and password=#{password}
   </select>
-
+<!--判断邮箱是否存在-->
   <select id="checkEmail" parameterType="string" resultType="int">
     select count(*) from  neuedu_user where email=#{email}
   </select>
+
+  <!--根据用户名查找密保问题   -->
+  <select id="selectQuestionByusername" parameterType="string" resultType="string">
+    select question from neuedu_user where username=#{username}
+  </select>
+
+
+  <select id="checkAnswerByUsernameQuestion" parameterType="string" resultType="int">
+    select count(*) from  neuedu_user where username=#{username} and question=#{question} and answer=#{answer}
+  </select>
+
+  <!--更具用户名更新密码-->
+  <update id="updatePasswordByusername" parameterType="map">
+   update neuedu_user
+    set
+    password = #{passwordNew,jdbcType=VARCHAR},
+   update_time=now()
+    where username = #{username,jdbcType=INTEGER}
+  </update>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </mapper>

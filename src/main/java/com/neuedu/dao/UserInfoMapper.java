@@ -60,4 +60,25 @@ public interface UserInfoMapper {
      * 根据用户名和密码进行查询，是否存在这个用户
      * */
     UserInfo selectUserByUsernameAndPassword(@Param("username") String username,@Param("password") String password);
+/**
+ * 根据username查询密保问题
+ * */
+    String selectQuestionByusername(String username);
+/**
+ * 查询答案
+ * */
+int checkAnswerByUsernameQuestion(@Param("username") String username,
+                                  @Param("question") String question,
+                                  @Param("answer") String answer);
+//更具用户名更新密码
+    int updatePasswordByusername(@Param("username") String username,
+                                 @Param("passwordNew") String passwordNew);
+
+
+
+
+
+
+
+
 }
