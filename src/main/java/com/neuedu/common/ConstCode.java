@@ -69,4 +69,38 @@ public class ConstCode {
 
         }
     }
+
+
+
+    //商品的状态
+    public  enum ProductStatusEnum { //一个变量他是有限的你就可以定义一个枚举
+        PRODUCT_ONL_INE(1,"在售"),
+        PRODUCT_OFFINE(2,"下架"),
+        PRODUCT_DELETE(3,"删除")
+        ; //这个分号是枚举有的
+        private int code; //这个是0或1
+        private String desc;//这个是描述：管理员  或  普通用户
+        public int getCode() {
+            return code;
+        }
+
+        public void setCode(int code) {
+            this.code = code;
+        }
+
+        public String getDesc() {
+            return desc;
+        }
+
+        public void setDesc(String desc) {
+            this.desc = desc;
+        }
+
+        private ProductStatusEnum(int code, String desc){
+            this.code=code;
+            this.desc=desc;
+
+        }
+    }
+
 }
